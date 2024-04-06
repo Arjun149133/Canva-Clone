@@ -3,8 +3,8 @@
 import { revalidatePath } from "next/cache";
 
 import User from "../database/models/user.model";
-import { handleError } from "../utils";
 import { connectToDatabase } from "../database/mongoose";
+import { handleError } from "../utils";
 
 // CREATE
 export async function createUser(user: CreateUserParams) {
@@ -12,10 +12,12 @@ export async function createUser(user: CreateUserParams) {
     await connectToDatabase();
 
     const newUser = await User.create(user);
+    console.log("New user created", newUser);
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
     handleError(error);
+    console.log(error);
   }
 }
 
