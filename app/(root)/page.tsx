@@ -1,7 +1,7 @@
 import { UserButton } from "@clerk/nextjs";
 
 const Home = () => {
-  //Just for commit
+  //Just for commit2
   return (
     <>
       <div>Home</div>
